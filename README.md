@@ -4,5 +4,13 @@ This project is for the NuDot Experiement https://jgruszko.web.unc.edu/experimen
 
 The goal of my code and electronics is to move a point beta ray source to an exact height, inclination, and rotation. Knowing these allows NuDot to calibrate the precise timings given by the detectors. These timings are extremely important for event building, where we determine details about the event causing the signal such as the position and energy. 
 
+## My Approach and Method
+Having previously taken a class full dedicated to working with micro controllers, my first thought for this project was to use a Raspberry Pi. I ruled out Arduinos because I needed a file system to save multiple files and wanted the flexibility of a microcontroller with an OS for testing purposes. The problem ultimately boils down to moving 3 stepper motors into position, varifying the accuracy of that position, and recording that position for and future movements of the stepper. 
+
+I achieved these objectives by using python code to controll the stepper motors and a c++ program to read the data from the stepper encoders, interpret the data, and store the postion in a file. The python code will only move the stepper and the c++ code will only determine its position. This allows me to independently varify the positions of the steppers and compensate for any step skipping that might occur. This insures that we always accurately know the positions of the steppers which is important for both calibration and mechanical reasons. Obviously we need to accurately know the position of the beta source to calibrate the system, but there are also a few mechanical hard stops that the steppers would be unable to push past (blocked by a lot of metal). I could have used a sensors to determine the position in space but decided to make my code very robust to avoid the issue all together. 
+
+#### Code Structure
+I decided on an object oriented approach for ease of use and abstraction. The [Calibrator](https://github.com/badnat/NuDotCalibrationSystem/blob/main/calibrator.py) object is primarily for abstraction and handling error handling/edge cases. It holds all of the [Stepper](https://github.com/badnat/NuDotCalibrationSystem/blob/main/stepper.py) objects which send the signals to the stepper motors to move them. The [Stepper](https://github.com/badnat/NuDotCalibrationSystem/blob/main/stepper.py) objects also use bash commands to start up the [encoder](https://github.com/badnat/NuDotCalibrationSystem/blob/main/encoder.cpp) code for that stepper motor. 
+
 ## Assembled Calibration System
 ![Image](https://github.com/badnat/NuDotCalibrationSystem/blob/main/Calibration_installed.png)
