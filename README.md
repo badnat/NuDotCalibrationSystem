@@ -5,4 +5,4 @@ This project is for the NuDot Experiement https://jgruszko.web.unc.edu/experimen
 The goal of my code and electronics is to move a point beta ray source to an exact height, inclination, and rotation. Knowing these allows NuDot to calibrate the precise timings given by the detectors. These timings are extremely important for event building, where we determine details about the event causing the signal such as the position and energy. 
 
 ## Assembled Calibration System
-!(https://github.com/badnat/NuDotCalibrationSystem/blob/main/Calibration_installed.png)
+![Image](https://github.com/badnat/NuDotCalibrationSystem/blob/main/Calibration_installed.png)
