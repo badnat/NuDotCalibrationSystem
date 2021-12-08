@@ -14,3 +14,8 @@ I decided on an object oriented approach for ease of use and abstraction. The [C
 
 ## Assembled Calibration System
 ![Image](https://github.com/badnat/NuDotCalibrationSystem/blob/main/Calibration_installed.png)
+
+## Challenges and Future Improvements
+- Fully implementation of code and handling a few more edge cases (almost finished)
+- Implement code for the Daq system to controll the py remotely using ssh keys
+- Finalize Electronics using a custom PCB and CAT6 cable to send signals to the steppers and to the Pi from the encoders
